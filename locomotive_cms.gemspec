@@ -24,10 +24,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise-encryptable',              '~> 0.1.1'
   s.add_dependency 'cancan',                          '1.6.7'
 
-  s.add_dependency 'mongo'
+  # s.add_dependency 'mongo'
   s.add_dependency 'mongoid',                         '~> 3.1.3'
-  s.add_dependency 'mongoid-tree'
-  s.add_dependency 'locomotive-mongoid_migration'
+  s.add_dependency 'mongoid-tree',                    '~> 1.0.1'
+  s.add_dependency 'locomotive-mongoid_migration',    '~> 0.0.6'
 
   # s.add_dependency 'custom_fields',                   '~> 2.1.0'
 
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'highline',                        '~> 1.6.2'
   s.add_dependency 'stringex',                        '~> 1.5.1'
 
-  s.add_dependency 'carrierwave-mongoid'
+  s.add_dependency 'carrierwave-mongoid',             '~> 0.5.0'
   s.add_dependency 'fog',                             '~> 1.3.1'
   s.add_dependency 'dragonfly',                       '~> 0.9.8'
   s.add_dependency 'rack-cache',                      '~> 1.1'

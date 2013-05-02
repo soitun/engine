@@ -12,14 +12,17 @@ module Mongoid#:nodoc:
     end
   end
 
-  module Fields #:nodoc:
-    module Internal #:nodoc:
-      class RawArray < Mongoid::Fields::Internal::Array
-        def resizable?; false; end
-      end
-    end
+  # module Fields #:nodoc:
+  #   module Internal #:nodoc:
+  #     class RawArray < Mongoid::Fields::Internal::Array
+  #       def resizable?; false; end
+  #     end
+  #   end
 
-    class RawArray < ::Array; end
+  #   class RawArray < ::Array; end
+  # end
+  class RawArray < ::Array
+    def resizable?; false; end
   end
 
   class Criteria
