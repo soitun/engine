@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   # s.add_dependency 'mongo'
   s.add_dependency 'mongoid',                         '~> 3.1.3'
   s.add_dependency 'mongoid-tree',                    '~> 1.0.1'
-  s.add_dependency 'locomotive-mongoid_migration',    '~> 0.0.6'
+  s.add_dependency 'locomotive-mongoid_migration',    '~> 0.0.7'
 
   # s.add_dependency 'custom_fields',                   '~> 2.1.0'
 

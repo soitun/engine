@@ -18,8 +18,8 @@ module Locomotive
           before_destroy  :delete_descendants
 
           ## indexes ##
-          index :position
-          index [[:depth, Mongo::ASCENDING], [:position, Mongo::ASCENDING]]
+          index position: 1
+          index depth:    1, position: 1
 
           alias_method_chain :rearrange, :identity_map
           alias_method_chain :rearrange_children, :identity_map

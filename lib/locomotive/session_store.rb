@@ -7,7 +7,8 @@ module ActionDispatch
         include Mongoid::Timestamps
 
         field :data, type: String, default: [Marshal.dump({})].pack("m*")
-        index :updated_at
+
+        index updated_at: 1
       end
 
       # The class used for session storage.

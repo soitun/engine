@@ -35,7 +35,8 @@ module Locomotive
     scope :ordered, order_by: :updated_at.desc
 
     ## indexes ##
-    index [[:site_id, Mongo::ASCENDING], [:slug, Mongo::ASCENDING]]
+    index site_id: 1, slug: 1
+
 
     ## callbacks ##
     before_validation   :normalize_slug
