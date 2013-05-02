@@ -29,8 +29,8 @@ module Locomotive
     after_create      :send_notifications
 
     ## named scopes ##
-    scope :visible, where: { _visible: true }
-    scope :latest_updated, order_by: :updated_at.desc, limit: Locomotive.config.ui[:latest_entries_nb]
+    scope :visible, where(_visible: true)
+    scope :latest_updated, order_by(updated_at: :desc).limit(Locomotive.config.ui[:latest_entries_nb])
 
     ## methods ##
 
@@ -114,7 +114,7 @@ module Locomotive
     # @param [ Array ] The ordered array of ids
     #
     def self.sort_entries!(ids)
-      list = self.any_in(_id: ids.map { |id| BSON::ObjectId.from_string(id.to_s) }).to_a
+      list = self.any_in(_id: ids.map { |id| Moped::BSON::ObjectId.from_string(id.to_s) }).to_a
       ids.each_with_index do |id, position|
         if entry = list.detect { |e| e._id.to_s == id.to_s }
           entry.update_attributes _position: position
