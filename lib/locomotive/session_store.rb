@@ -40,8 +40,7 @@ module ActionDispatch
 
         def find_session(id)
           id = Moped::BSON::ObjectId.from_string(id.to_s)
-          @@session_class.first(conditions: { _id: id }) ||
-            @@session_class.new(id: id)
+          @@session_class.where(_id: id).first || @@session_class.new(id: id)
         end
 
         def pack(data)

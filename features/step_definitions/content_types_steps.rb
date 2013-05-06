@@ -55,8 +55,11 @@ end
 
 Given %r{^I have entries for "([^"]*)" with$} do |name, entries|
   content_type = Locomotive::ContentType.where(name: name).first
-  entries.hashes.each do |entry|
-    content_type.entries.create(entry)
+  entries.hashes.each do |attributes|
+    entry_id  = attributes.delete('id')
+    entry     = content_type.entries.build(attributes)
+    entry.id  = entry_id if entry_id
+    entry.save!
   end
   content_type.save.should be_true
 end

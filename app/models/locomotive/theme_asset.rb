@@ -104,7 +104,7 @@ module Locomotive
     end
 
     def self.all_grouped_by_folder(site)
-      assets = site.theme_assets.order_by([[:slug, :asc]])
+      assets = site.theme_assets.order_by(:slug.asc)
       assets.group_by { |a| a.folder.split('/').first.to_sym }
     end
 
