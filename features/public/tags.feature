@@ -19,24 +19,20 @@ Scenario: Navigate by tags
   Given a page named "my-posts" with the template:
     """
     {% if params.tag %}
-      {% with_scope tags: params.tag %}
-        {% for post in contents.posts %}
-          {{ post.title }}<br>
-          {% for tag in post.tags %}
-          <a href="/my-posts?tag={{ tag }}">{{ tag }}</a>
-          {% endfor %}
-          <hr>
-        {% endfor %}
-      {% endwith_scope %}
+     {% with_scope tags: params.tag %}
+       {% assign posts = contents.posts.all %}
+     {% endwith_scope %}
     {% else %}
-      {% for post in contents.posts %}
-        {{ post.title }}<br>
-        {% for tag in post.tags %}
-        <a href="/my-posts?tag={{ tag }}">{{ tag }}</a>
-        {% endfor %}
-        <hr>
-      {% endfor %}
+     {% assign posts = contents.posts.all %}
     {% endif %}
+
+    {% for post in posts %}
+     {{ post.title }}<br>
+     {% for tag in post.tags %}
+     <a href="/my-posts?tag={{ tag }}">{{ tag }}</a>
+     {% endfor %}
+     <hr>
+    {% endfor %}
     """
   When I view the rendered page at "/my-posts"
   Then I should see "Fashion post"
