@@ -352,6 +352,7 @@ DEPENDENCIES
   custom_fields!
   database_cleaner
   factory_girl_rails (~> 4.2.1)
+  faye-websocket (~> 0.4.7)
   json_spec
   launchy
   locomotive_cms!

@@ -61,6 +61,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'actionmailer-with-request',       '~> 0.3.0'
 
   s.add_dependency 'SystemTimer' if RUBY_VERSION =~ /1.8/
+  
+  s.add_development_dependency "faye-websocket", '~> 0.4.7' # with 0.5, cucumber features are broken.
 
   s.files        = Dir[ 'Gemfile',
                         '{app}/**/*',
