@@ -62,7 +62,22 @@ describe Locomotive::CurrentSiteController do
         end
 
       end
+    end
 
+    describe 'add a new locale' do
+      let(:attributes) { { locales: ["en", "fr"] } }
+      it "updates the locales" do
+        subject
+        expect(assigns(:site).locales).to eq(["en", "fr"])
+      end
+    end
+
+    describe 'replace the default locale' do
+      let(:attributes) { { locales: ["fr"] } }
+      it "updates the locales" do
+        subject
+        expect(assigns(:site).locales).to eq(["fr"])
+      end
     end
 
   end
